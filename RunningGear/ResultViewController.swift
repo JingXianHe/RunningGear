@@ -1,0 +1,136 @@
+//
+//  ResultViewController.swift
+//  RunningGear
+//
+//  Created by beihaiSellshou on 1/14/16.
+//  Copyright © 2016 JXHDev. All rights reserved.
+//
+
+import UIKit
+import MapKit
+import HealthKit
+
+class ResultViewController: UIViewController {
+
+    @IBOutlet weak var ResultMapView: MKMapView!
+    
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var paceLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    weak var RunVCDelegat:RunViewController?
+    
+    @IBAction func dismiss2Home() {
+        dismissViewControllerAnimated(false) { () -> Void in
+            self.RunVCDelegat?.dismissViewControllerAnimated(true, completion: { () -> Void in
+                
+            })
+        }
+    }
+
+    
+    var run: Run!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+        // Do any additional setup after loading the view.
+    }
+    func configureView() {
+        let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: run.distance!.doubleValue)
+        distanceLabel.text = "Distance: " + distanceQuantity.description
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        dateLabel.text = dateFormatter.stringFromDate(run.timestamp!)
+        
+        let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: run.duration!.doubleValue)
+        timeLabel.text = "Time: " + secondsQuantity.description
+        
+        let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
+        let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: run.duration!.doubleValue / run.distance!.doubleValue)
+        paceLabel.text = "Pace: " + paceQuantity.description
+        loadMap()
+    }
+    func loadMap() {
+        if run.locations?.count > 0 {
+            ResultMapView.hidden = false
+            
+            // Set the map bounds
+            ResultMapView.region = mapRegion()
+            
+            // Make the line(s!) on the map
+            let colorSegments = MulticolorPolylineSegment.colorSegments(forLocations: run.locations!.array as! [Location])
+            ResultMapView.addOverlays(colorSegments)
+        } else {
+            // No locations were found!
+            ResultMapView.hidden = true
+            
+            UIAlertView(title: "Error",
+                message: "Sorry, this run has no locations saved",
+                delegate:nil,
+                cancelButtonTitle: "OK").show()
+        }
+    }
+    func mapRegion() -> MKCoordinateRegion {
+        let initialLoc = run.locations!.firstObject as! Location
+        //这只是初始化数值，下面的for loop将会把最小的经纬度和最大的经纬度找出
+        var minLat = initialLoc.latitude!.doubleValue
+        var minLng = initialLoc.longitude!.doubleValue
+        var maxLat = minLat
+        var maxLng = minLng
+        
+        let locations = run.locations!.array as! [Location]
+        
+        for location in locations {
+            minLat = min(minLat, location.latitude!.doubleValue)
+            minLng = min(minLng, location.longitude!.doubleValue)
+            maxLat = max(maxLat, location.latitude!.doubleValue)
+            maxLng = max(maxLng, location.longitude!.doubleValue)
+        }
+        
+        return MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: (minLat + maxLat)/2,
+                longitude: (minLng + maxLng)/2),
+            span: MKCoordinateSpan(latitudeDelta: (maxLat - minLat)*1.1,
+                longitudeDelta: (maxLng - minLng)*1.1))
+    }
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        if !overlay.isKindOfClass(MKPolyline) {
+            return nil
+        }
+        
+        let polyline = overlay as! MulticolorPolylineSegment
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = polyline.color
+        renderer.lineWidth = 3
+        return renderer
+    }
+    func polyline() -> MKPolyline {
+        var coords = [CLLocationCoordinate2D]()
+        
+        let locations = run.locations!.array as! [Location]
+        for location in locations {
+            coords.append(CLLocationCoordinate2D(latitude: location.latitude!.doubleValue,
+                longitude: location.longitude!.doubleValue))
+        }
+        
+        return MKPolyline(coordinates: &coords, count: coords.count)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		FF0C5C671C3FC8A0001BBD17 /* RunPane.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0C5C661C3FC8A0001BBD17 /* RunPane.storyboard */; };
+		FF1746051C488CB8001384FA /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1746031C488CB8001384FA /* Run+CoreDataProperties.swift */; };
+		FF1746061C488CB8001384FA /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1746041C488CB8001384FA /* Run.swift */; };
+		FF1746091C488CCF001384FA /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1746071C488CCF001384FA /* Location+CoreDataProperties.swift */; };
+		FF17460A1C488CCF001384FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1746081C488CCF001384FA /* Location.swift */; };
 		FF2E5E651C3CF15D00586E43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E641C3CF15D00586E43 /* AppDelegate.swift */; };
 		FF2E5E671C3CF15D00586E43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E661C3CF15D00586E43 /* ViewController.swift */; };
 		FF2E5E6A1C3CF15D00586E43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2E5E681C3CF15D00586E43 /* Main.storyboard */; };
@@ -15,7 +19,12 @@
 		FF2E5E6F1C3CF15D00586E43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2E5E6D1C3CF15D00586E43 /* LaunchScreen.storyboard */; };
 		FF2E5E7A1C3CF15D00586E43 /* RunningGearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E791C3CF15D00586E43 /* RunningGearTests.swift */; };
 		FF2E5E851C3CF15D00586E43 /* RunningGearUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E841C3CF15D00586E43 /* RunningGearUITests.swift */; };
+		FF5A7FE01C47956D009CFC47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5A7FDF1C47956D009CFC47 /* CoreData.framework */; };
+		FF5A7FE31C479630009CFC47 /* RunningGear.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FE11C479630009CFC47 /* RunningGear.xcdatamodeld */; };
+		FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */; };
+		FF5A7FED1C47B257009CFC47 /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */; };
 		FF85B71F1C3FAF4A0097D78A /* JXHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85B71E1C3FAF4A0097D78A /* JXHButton.swift */; };
+		FFC062A71C40BB2700B2B4AD /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC062A61C40BB2700B2B4AD /* RunViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +46,10 @@
 
 /* Begin PBXFileReference section */
 		FF0C5C661C3FC8A0001BBD17 /* RunPane.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RunPane.storyboard; sourceTree = "<group>"; };
+		FF1746031C488CB8001384FA /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FF1746041C488CB8001384FA /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		FF1746071C488CCF001384FA /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FF1746081C488CCF001384FA /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FF2E5E611C3CF15D00586E43 /* RunningGear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningGear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2E5E641C3CF15D00586E43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF2E5E661C3CF15D00586E43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +63,12 @@
 		FF2E5E801C3CF15D00586E43 /* RunningGearUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunningGearUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2E5E841C3CF15D00586E43 /* RunningGearUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningGearUITests.swift; sourceTree = "<group>"; };
 		FF2E5E861C3CF15D00586E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF5A7FDF1C47956D009CFC47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FF5A7FE21C479630009CFC47 /* RunningGear.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunningGear.xcdatamodel; sourceTree = "<group>"; };
+		FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
 		FF85B71E1C3FAF4A0097D78A /* JXHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXHButton.swift; sourceTree = "<group>"; };
+		FFC062A61C40BB2700B2B4AD /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5A7FE01C47956D009CFC47 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +108,7 @@
 		FF2E5E581C3CF15C00586E43 = {
 			isa = PBXGroup;
 			children = (
+				FF5A7FDF1C47956D009CFC47 /* CoreData.framework */,
 				FF2E5E631C3CF15D00586E43 /* RunningGear */,
 				FF2E5E781C3CF15D00586E43 /* RunningGearTests */,
 				FF2E5E831C3CF15D00586E43 /* RunningGearUITests */,
@@ -116,6 +136,7 @@
 				FF2E5E6B1C3CF15D00586E43 /* Assets.xcassets */,
 				FF2E5E6D1C3CF15D00586E43 /* LaunchScreen.storyboard */,
 				FF2E5E701C3CF15D00586E43 /* Info.plist */,
+				FF5A7FE11C479630009CFC47 /* RunningGear.xcdatamodeld */,
 			);
 			path = RunningGear;
 			sourceTree = "<group>";
@@ -138,6 +159,25 @@
 			path = RunningGearUITests;
 			sourceTree = "<group>";
 		};
+		FF5A7FE41C4797A7009CFC47 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF1746031C488CB8001384FA /* Run+CoreDataProperties.swift */,
+				FF1746041C488CB8001384FA /* Run.swift */,
+				FF1746071C488CCF001384FA /* Location+CoreDataProperties.swift */,
+				FF1746081C488CCF001384FA /* Location.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FF5A7FEB1C47B236009CFC47 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
 		FFBAB1CD1C3FC0DC00A998AC /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +190,7 @@
 		FFBAB1CE1C3FC0E600A998AC /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				FF5A7FE41C4797A7009CFC47 /* Models */,
 				FF85B71E1C3FAF4A0097D78A /* JXHButton.swift */,
 			);
 			name = Tools;
@@ -174,9 +215,20 @@
 		FFBAB1D11C3FC17A00A998AC /* Run */ = {
 			isa = PBXGroup;
 			children = (
+				FF5A7FEB1C47B236009CFC47 /* Tools */,
+				FFC062A51C40BB0600B2B4AD /* Controller */,
 				FF0C5C651C3FC87C001BBD17 /* StoryBoard */,
 			);
 			name = Run;
+			sourceTree = "<group>";
+		};
+		FFC062A51C40BB0600B2B4AD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FFC062A61C40BB2700B2B4AD /* RunViewController.swift */,
+				FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +299,11 @@
 				TargetAttributes = {
 					FF2E5E601C3CF15C00586E43 = {
 						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					FF2E5E741C3CF15D00586E43 = {
 						CreatedOnToolsVersion = 7.2;
@@ -312,8 +369,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF2E5E671C3CF15D00586E43 /* ViewController.swift in Sources */,
+				FF17460A1C488CCF001384FA /* Location.swift in Sources */,
+				FF1746061C488CB8001384FA /* Run.swift in Sources */,
+				FF5A7FED1C47B257009CFC47 /* MulticolorPolylineSegment.swift in Sources */,
 				FF2E5E651C3CF15D00586E43 /* AppDelegate.swift in Sources */,
+				FF1746091C488CCF001384FA /* Location+CoreDataProperties.swift in Sources */,
+				FF5A7FE31C479630009CFC47 /* RunningGear.xcdatamodeld in Sources */,
+				FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */,
+				FFC062A71C40BB2700B2B4AD /* RunViewController.swift in Sources */,
 				FF85B71F1C3FAF4A0097D78A /* JXHButton.swift in Sources */,
+				FF1746051C488CB8001384FA /* Run+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +626,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FF5A7FE11C479630009CFC47 /* RunningGear.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FF5A7FE21C479630009CFC47 /* RunningGear.xcdatamodel */,
+			);
+			currentVersion = FF5A7FE21C479630009CFC47 /* RunningGear.xcdatamodel */;
+			path = RunningGear.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FF2E5E591C3CF15C00586E43 /* Project object */;
 }

@@ -22,6 +22,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func goToZone(sender: UIButton) {
+        //let selfFrame:CGRect = sender.frame
+        let tag4Btn:Int = sender.tag
+        if tag4Btn == 1{
+            let mystoryboard = UIStoryboard(name: "RunPane", bundle: nil)
+            let nav = mystoryboard.instantiateViewControllerWithIdentifier("RunPane")
+            //nav.transitioningDelegate = self
+            nav.view.backgroundColor = UIColor.grayColor()
+
+            presentViewController(nav, animated: true) { () -> Void in
+                
+            }
+            
+        }
+        
+    }
 
 }
 

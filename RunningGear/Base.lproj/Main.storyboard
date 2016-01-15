@@ -31,11 +31,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcX-up-do4">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="114"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAJ-Dc-KB9" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAJ-Dc-KB9" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="23" width="128" height="69"/>
                                                         <color key="backgroundColor" red="0.070588235294117646" green="0.68235294117647061" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="Run" image="running"/>
+                                                        <connections>
+                                                            <action selector="goToZone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d53-ye-RRI"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -49,11 +52,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2A-US-LB4">
                                                 <rect key="frame" x="160" y="0.0" width="160" height="114"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGy-jM-Qi7" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGy-jM-Qi7" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="22" width="128" height="69"/>
                                                         <color key="backgroundColor" red="0.070588235289999995" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="Run&amp;Music" image="music"/>
+                                                        <connections>
+                                                            <action selector="goToZone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y4P-6M-1sF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -84,11 +90,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccc-WZ-dUf">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="113"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDd-Y5-jsx" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDd-Y5-jsx" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="23" width="128" height="68"/>
                                                         <color key="backgroundColor" red="0.070588235289999995" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="My Log" image="document"/>
+                                                        <connections>
+                                                            <action selector="goToZone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cl0-sQ-Z36"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -102,11 +111,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2V-0b-OZa">
                                                 <rect key="frame" x="160" y="0.0" width="160" height="113"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzn-8r-uNQ" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzn-8r-uNQ" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="23" width="128" height="68"/>
                                                         <color key="backgroundColor" red="0.070588235289999995" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="Analyst" image="myLog"/>
+                                                        <connections>
+                                                            <action selector="goToZone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0h9-WN-x3X"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -137,11 +149,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQa-D8-i6B">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="114"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUe-4s-UNK" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUe-4s-UNK" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
                                                         <rect key="frame" x="17" y="23" width="128" height="68"/>
                                                         <color key="backgroundColor" red="0.070588235289999995" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="Set Goal" image="goal"/>
+                                                        <connections>
+                                                            <action selector="goToZone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b0m-gc-ap5"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -155,11 +170,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1e-rJ-g65">
                                                 <rect key="frame" x="160" y="0.0" width="160" height="114"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8j-dt-LFo" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8j-dt-LFo" customClass="JXHButton" customModule="RunningGear" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="23" width="128" height="68"/>
                                                         <color key="backgroundColor" red="0.070588235289999995" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="Share" image="share"/>
+                                                        <connections>
+                                                            <action selector="goToZone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YjE-Uq-xRs"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
