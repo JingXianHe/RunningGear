@@ -11,17 +11,22 @@ import CoreData
 import CoreLocation
 import HealthKit
 import MapKit
+import MediaPlayer
 
 class RunViewController: UIViewController {
 
     var managedObjectContext: NSManagedObjectContext?
     var run: Run!
         
+    @IBOutlet weak var songLists: UITableView!
+    @IBOutlet weak var musicListContainer: UIView!
+    
     @IBOutlet weak var DistanceLabel: UILabel!
     @IBOutlet weak var TimeLabel: UILabel!
     @IBOutlet weak var PaceLabel: UILabel!
     @IBOutlet weak var RemainLabel: UILabel!
 
+    @IBOutlet weak var playMusicBtn: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var StartBtn: UIButton!
     var seconds = 0.0
@@ -41,12 +46,20 @@ class RunViewController: UIViewController {
     }()
     lazy var locations = [CLLocation]()
     lazy var timer = NSTimer()
+    //for music player
+    var	userMediaItemCollection:MPMediaItemCollection?
+    weak var musicPlayer:MPMusicPlayerController?
+     var songsTitle = [String]()
+    var isPlayingMusic :Bool = false
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         locationManager.requestAlwaysAuthorization()
     }
-    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         timer.invalidate()
@@ -59,6 +72,7 @@ class RunViewController: UIViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         managedObjectContext = appDelegate.managedObjectContext
         // Do any additional setup after loading the view.
+        songLists.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,6 +95,8 @@ class RunViewController: UIViewController {
             isRunning = false
             timer.invalidate()
             locationManager.stopUpdatingLocation()
+            isPlayingMusic = false
+            musicPlayer?.pause()
             let actionSheet = UIActionSheet(title: "Run Stopped", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Save", "Discard")
             actionSheet.actionSheetStyle = .Default
             actionSheet.showInView(view)
@@ -95,6 +111,11 @@ class RunViewController: UIViewController {
             sender.backgroundColor = UIColor.redColor()
             sender.setTitle("Stop", forState: UIControlState.Normal)
             isRunning = true
+            if isPlayingMusic == false{
+                self.musicPlayer?.play()
+                isPlayingMusic = true
+            }
+            
         }
         
         
@@ -121,7 +142,7 @@ class RunViewController: UIViewController {
         savedRun.duration = seconds
         savedRun.timestamp = NSDate()
         
-        // 2初始化一个Location数据表条目的对象，然后填上数据，然后批量地储存在NSArray中
+        // 2
         var savedLocations = [Location]()
         for location in locations {
             let savedLocation = NSEntityDescription.insertNewObjectForEntityForName("Location",
@@ -131,19 +152,21 @@ class RunViewController: UIViewController {
             savedLocation.longitude = location.coordinate.longitude
             savedLocations.append(savedLocation)
         }
-        //因为Run数据表中有一个Location数据表的field所以可以将Location数据表当属性一样储存在Run数据表中
-
+        
         savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
         
         // 3
-        // 3
-        do {
-            try managedObjectContext!.save()
-        } catch let error as NSError {
-            
-            NSLog("Unresolved error \(error), \(error.userInfo)")
-            // Handle Error
+        if managedObjectContext!.hasChanges {
+            do {
+                try managedObjectContext!.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
         }
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -151,6 +174,92 @@ class RunViewController: UIViewController {
             detailViewController.run = run
             detailViewController.RunVCDelegat = self
         }
+    }
+    @IBAction func playMusicItem() {
+        let picker = MPMediaPickerController(mediaTypes: MPMediaType.AnyAudio)
+        
+        picker.delegate	= self;
+        picker.allowsPickingMultipleItems = true;
+        picker.prompt	= "Add songs to play Prompt in media item picker";
+        
+        presentViewController(picker, animated: false) { () -> Void in
+            
+        }
+    }
+    func updatePlayerQueueWithMediaCollection(mediaItemCollection:MPMediaItemCollection){
+        
+        // Configure the music player, but only if the user chose at least one song to play
+        
+        // apply the new media item collection as a playback queue for the music player
+        
+        if((self.userMediaItemCollection) != nil){
+            var wasPlaying:Bool = false;
+            if (self.musicPlayer!.playbackState == MPMusicPlaybackState.Playing) {
+                wasPlaying = true;
+            }
+            
+            // Save the now-playing item and its current playback time.
+            let nowPlayingItem:MPMediaItem	= musicPlayer!.nowPlayingItem!
+            let currentPlaybackTime:NSTimeInterval	= musicPlayer!.currentPlaybackTime
+            
+            // Combine the previously-existing media item collection with the new one
+            var combinedMediaItems:NSMutableArray	= NSMutableArray(array:userMediaItemCollection!.items)
+            var newMediaItems:NSArray			= mediaItemCollection.items
+            combinedMediaItems.addObjectsFromArray(newMediaItems as [AnyObject])
+            
+            userMediaItemCollection = MPMediaItemCollection(items: combinedMediaItems as NSArray! as! [MPMediaItem])
+            
+            // Apply the new media item collection as a playback queue for the music player.
+            musicPlayer?.setQueueWithItemCollection(userMediaItemCollection!)
+            
+            // Restore the now-playing item and its current playback time.
+            musicPlayer?.nowPlayingItem			= nowPlayingItem
+            musicPlayer?.currentPlaybackTime		= currentPlaybackTime;
+            let collection = userMediaItemCollection!.items
+            for var item:MPMediaItem? in collection{
+                
+                songsTitle.append(item!.title!)
+                
+            }
+            
+            // If the music player was playing, get it playing again.
+            if (wasPlaying) {
+                self.musicPlayer?.play()
+            }
+        }else{
+            self.userMediaItemCollection = mediaItemCollection
+            let musicPlayer = MPMusicPlayerController()
+            musicPlayer.setQueueWithItemCollection(mediaItemCollection)
+            self.musicPlayer = musicPlayer
+            
+            let collection = mediaItemCollection.items 
+            if(isRunning){
+                musicPlayer.play()
+                isPlayingMusic = true
+            }
+            
+            for var item:MPMediaItem? in collection{
+                
+                songsTitle.append(item!.title!)
+                
+            }
+        }
+        self.songLists.reloadData()
+        
+    }
+    func cleanMusicPlayer(){
+        userMediaItemCollection = nil
+        
+        musicPlayer?.nowPlayingItem = nil;
+        musicPlayer?.stop()
+    }
+    @IBAction func addMusics(sender: AnyObject) {
+        playMusicBtn.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
+        
+    }
+    @IBAction func dismissMusicList() {
+        musicListContainer.hidden = true
+
     }
 
 
@@ -207,13 +316,52 @@ extension RunViewController: UIActionSheetDelegate {
         //save
         if buttonIndex == 1 {
             saveRun()
+            cleanMusicPlayer()
             performSegueWithIdentifier("showResult", sender: nil)
         }
             //discard
         else if buttonIndex == 2 {
+            cleanMusicPlayer()
             dismissViewControllerAnimated(true, completion: { () -> Void in
                 
             })
         }
     }
+}
+extension RunViewController:MPMediaPickerControllerDelegate{
+    func mediaPicker(mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        updatePlayerQueueWithMediaCollection(mediaItemCollection)
+        dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+    }
+    func mediaPickerDidCancel(mediaPicker: MPMediaPickerController) {
+        dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+    }
+    
+}
+extension RunViewController:UITableViewDataSource{
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var counts : Int = 0
+        if songsTitle.count > 0 {
+            counts = songsTitle.count
+        }
+        
+        return counts
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        let cell = UITableViewCell()
+        if songsTitle.count > 0{
+            
+            cell.textLabel?.text =  songsTitle[indexPath.row]
+        }
+        
+        return cell
+    }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
 }

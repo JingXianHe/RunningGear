@@ -33,11 +33,13 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        ResultMapView.delegate = self
         // Do any additional setup after loading the view.
     }
     func configureView() {
-        let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: run.distance!.doubleValue)
-        distanceLabel.text = "Distance: " + distanceQuantity.description
+        
+        let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: NSString(format: "%.02f", run.distance!.doubleValue).doubleValue)
+        distanceLabel.text = "Distance: " +  distanceQuantity.description
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
@@ -46,17 +48,19 @@ class ResultViewController: UIViewController {
         let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: run.duration!.doubleValue)
         timeLabel.text = "Time: " + secondsQuantity.description
         
-        let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
-        let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: run.duration!.doubleValue / run.distance!.doubleValue)
+        let paceUnit = HKUnit.meterUnit().unitDividedByUnit(HKUnit.secondUnit())
+        let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: NSString(format: "%.02f", run.distance!.doubleValue / run.duration!.doubleValue).doubleValue)
         paceLabel.text = "Pace: " + paceQuantity.description
         loadMap()
     }
     func loadMap() {
         if run.locations?.count > 0 {
+            
             ResultMapView.hidden = false
             
             // Set the map bounds
             ResultMapView.region = mapRegion()
+            
             
             // Make the line(s!) on the map
             let colorSegments = MulticolorPolylineSegment.colorSegments(forLocations: run.locations!.array as! [Location])
@@ -73,7 +77,7 @@ class ResultViewController: UIViewController {
     }
     func mapRegion() -> MKCoordinateRegion {
         let initialLoc = run.locations!.firstObject as! Location
-        //这只是初始化数值，下面的for loop将会把最小的经纬度和最大的经纬度找出
+        
         var minLat = initialLoc.latitude!.doubleValue
         var minLng = initialLoc.longitude!.doubleValue
         var maxLat = minLat
@@ -94,17 +98,7 @@ class ResultViewController: UIViewController {
             span: MKCoordinateSpan(latitudeDelta: (maxLat - minLat)*1.1,
                 longitudeDelta: (maxLng - minLng)*1.1))
     }
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
-        if !overlay.isKindOfClass(MKPolyline) {
-            return nil
-        }
-        
-        let polyline = overlay as! MulticolorPolylineSegment
-        let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = polyline.color
-        renderer.lineWidth = 3
-        return renderer
-    }
+    
     func polyline() -> MKPolyline {
         var coords = [CLLocationCoordinate2D]()
         
@@ -114,7 +108,7 @@ class ResultViewController: UIViewController {
                 longitude: location.longitude!.doubleValue))
         }
         
-        return MKPolyline(coordinates: &coords, count: coords.count)
+        return MKPolyline(coordinates: &coords, count: run.locations!.count)
     }
 
     override func didReceiveMemoryWarning() {
@@ -133,4 +127,19 @@ class ResultViewController: UIViewController {
     }
     */
 
+}
+// MARK: - MKMapViewDelegate
+extension ResultViewController: MKMapViewDelegate {
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        if !overlay.isKindOfClass(MulticolorPolylineSegment) {
+            return nil
+        }
+        
+        let polyline = overlay as! MulticolorPolylineSegment
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = polyline.color
+        renderer.lineWidth = 3
+        return renderer
+    }
 }

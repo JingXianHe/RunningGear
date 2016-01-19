@@ -35,6 +35,15 @@ class ViewController: UIViewController {
                 
             }
             
+        }else if(tag4Btn == 2){
+            let mystoryboard = UIStoryboard(name: "RunPane", bundle: nil)
+            let nav = mystoryboard.instantiateViewControllerWithIdentifier("RunPane") as! RunViewController
+            //nav.transitioningDelegate = self
+            nav.view.backgroundColor = UIColor.grayColor()
+            nav.musicListContainer.hidden = false
+            presentViewController(nav, animated: true) { () -> Void in
+                nav.playMusicBtn.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
+            }
         }
         
     }
