@@ -24,6 +24,11 @@
 		FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */; };
 		FF5A7FED1C47B257009CFC47 /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */; };
 		FF85B71F1C3FAF4A0097D78A /* JXHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85B71E1C3FAF4A0097D78A /* JXHButton.swift */; };
+		FFBBE4881C4F1AF500FACB7B /* ModelAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBBE4871C4F1AF500FACB7B /* ModelAnimator.swift */; };
+		FFBBE48B1C4F38BD00FACB7B /* PastRun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFBBE48A1C4F38BD00FACB7B /* PastRun.storyboard */; };
+		FFBBE48E1C4F391500FACB7B /* PastRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBBE48D1C4F391400FACB7B /* PastRunViewController.swift */; };
+		FFBBE4901C4F488C00FACB7B /* RunningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFBBE48F1C4F488C00FACB7B /* RunningCell.xib */; };
+		FFBBE4931C4F5EB700FACB7B /* PastRunCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBBE4921C4F5EB700FACB7B /* PastRunCellTableViewCell.swift */; };
 		FFC062A71C40BB2700B2B4AD /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC062A61C40BB2700B2B4AD /* RunViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +73,11 @@
 		FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
 		FF85B71E1C3FAF4A0097D78A /* JXHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXHButton.swift; sourceTree = "<group>"; };
+		FFBBE4871C4F1AF500FACB7B /* ModelAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAnimator.swift; sourceTree = "<group>"; };
+		FFBBE48A1C4F38BD00FACB7B /* PastRun.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PastRun.storyboard; sourceTree = "<group>"; };
+		FFBBE48D1C4F391400FACB7B /* PastRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunViewController.swift; sourceTree = "<group>"; };
+		FFBBE48F1C4F488C00FACB7B /* RunningCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunningCell.xib; sourceTree = "<group>"; };
+		FFBBE4921C4F5EB700FACB7B /* PastRunCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunCellTableViewCell.swift; sourceTree = "<group>"; };
 		FFC062A61C40BB2700B2B4AD /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +139,7 @@
 		FF2E5E631C3CF15D00586E43 /* RunningGear */ = {
 			isa = PBXGroup;
 			children = (
+				FFBBE4891C4F387C00FACB7B /* PastRun */,
 				FFBAB1D11C3FC17A00A998AC /* Run */,
 				FFBAB1CE1C3FC0E600A998AC /* Tools */,
 				FFBAB1CD1C3FC0DC00A998AC /* Home */,
@@ -162,6 +173,7 @@
 		FF5A7FE41C4797A7009CFC47 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FFBBE4871C4F1AF500FACB7B /* ModelAnimator.swift */,
 				FF1746031C488CB8001384FA /* Run+CoreDataProperties.swift */,
 				FF1746041C488CB8001384FA /* Run.swift */,
 				FF1746071C488CCF001384FA /* Location+CoreDataProperties.swift */,
@@ -220,6 +232,33 @@
 				FF0C5C651C3FC87C001BBD17 /* StoryBoard */,
 			);
 			name = Run;
+			sourceTree = "<group>";
+		};
+		FFBBE4891C4F387C00FACB7B /* PastRun */ = {
+			isa = PBXGroup;
+			children = (
+				FFBBE4911C4F5E8400FACB7B /* xib */,
+				FFBBE48C1C4F38EF00FACB7B /* Controller */,
+				FFBBE48A1C4F38BD00FACB7B /* PastRun.storyboard */,
+			);
+			name = PastRun;
+			sourceTree = "<group>";
+		};
+		FFBBE48C1C4F38EF00FACB7B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FFBBE48D1C4F391400FACB7B /* PastRunViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FFBBE4911C4F5E8400FACB7B /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				FFBBE48F1C4F488C00FACB7B /* RunningCell.xib */,
+				FFBBE4921C4F5EB700FACB7B /* PastRunCellTableViewCell.swift */,
+			);
+			name = xib;
 			sourceTree = "<group>";
 		};
 		FFC062A51C40BB0600B2B4AD /* Controller */ = {
@@ -343,7 +382,9 @@
 				FF2E5E6F1C3CF15D00586E43 /* LaunchScreen.storyboard in Resources */,
 				FF2E5E6C1C3CF15D00586E43 /* Assets.xcassets in Resources */,
 				FF0C5C671C3FC8A0001BBD17 /* RunPane.storyboard in Resources */,
+				FFBBE4901C4F488C00FACB7B /* RunningCell.xib in Resources */,
 				FF2E5E6A1C3CF15D00586E43 /* Main.storyboard in Resources */,
+				FFBBE48B1C4F38BD00FACB7B /* PastRun.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,12 +414,15 @@
 				FF1746061C488CB8001384FA /* Run.swift in Sources */,
 				FF5A7FED1C47B257009CFC47 /* MulticolorPolylineSegment.swift in Sources */,
 				FF2E5E651C3CF15D00586E43 /* AppDelegate.swift in Sources */,
+				FFBBE4931C4F5EB700FACB7B /* PastRunCellTableViewCell.swift in Sources */,
 				FF1746091C488CCF001384FA /* Location+CoreDataProperties.swift in Sources */,
+				FFBBE4881C4F1AF500FACB7B /* ModelAnimator.swift in Sources */,
 				FF5A7FE31C479630009CFC47 /* RunningGear.xcdatamodeld in Sources */,
 				FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */,
 				FFC062A71C40BB2700B2B4AD /* RunViewController.swift in Sources */,
 				FF85B71F1C3FAF4A0097D78A /* JXHButton.swift in Sources */,
 				FF1746051C488CB8001384FA /* Run+CoreDataProperties.swift in Sources */,
+				FFBBE48E1C4F391500FACB7B /* PastRunViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
