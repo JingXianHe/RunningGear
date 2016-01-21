@@ -8,7 +8,10 @@
 
 import UIKit
 import CoreData
-
+protocol PastRunCellDelegate {
+    func pastRunShare2Public(indexPath: NSIndexPath)
+    func pastRunDeleteRecord(indexPath:NSIndexPath)
+}
 class PastRunViewController: UIViewController {
     
     var runList = [Run]()
@@ -68,6 +71,7 @@ extension PastRunViewController:UITableViewDataSource{
         return runList.count;
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         var cell:PastRunCellTableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as? PastRunCellTableViewCell
         if (cell == nil) {
             // 从xib中加载cell
@@ -79,6 +83,9 @@ extension PastRunViewController:UITableViewDataSource{
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
         cell?.PaceLabel.text = dateFormatter.stringFromDate(runList[indexPath.row].timestamp!)
+        cell?.pastRunDelegate = self
+        cell?.cellIndex = indexPath
+        cell?.selectionStyle = .None
         return cell!;
     }
     
@@ -86,5 +93,33 @@ extension PastRunViewController:UITableViewDataSource{
 extension PastRunViewController:UITableViewDelegate{
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 150.0
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let mystoryboard = UIStoryboard(name: "RunPane", bundle: nil)
+        let nav = mystoryboard.instantiateViewControllerWithIdentifier("ResultPane") as! ResultViewController
+
+        nav.run = runList[indexPath.row]
+        nav.isPastPane = true
+        presentViewController(nav, animated: true) { () -> Void in
+            
+        }
+    }
+}
+extension PastRunViewController:PastRunCellDelegate{
+    func pastRunShare2Public(indexPath: NSIndexPath){
+        print("\(indexPath.row)")
+    }
+    func pastRunDeleteRecord(indexPath: NSIndexPath){
+        managedObjectContext!.deleteObject(runList[indexPath.row] as NSManagedObject)
+        runList.removeAtIndex(indexPath.row)
+        PastRunList.reloadData()
+        do{
+            
+            try managedObjectContext?.save()
+            
+        }catch let error as NSError{
+            
+        }
+        
     }
 }

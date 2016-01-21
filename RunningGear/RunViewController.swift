@@ -73,6 +73,7 @@ class RunViewController: UIViewController {
         managedObjectContext = appDelegate.managedObjectContext
         // Do any additional setup after loading the view.
         songLists.dataSource = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -133,6 +134,7 @@ class RunViewController: UIViewController {
     func startLocationUpdates() {
         // Here, the location manager will be lazily instantiated
         locationManager.startUpdatingLocation()
+        
     }
     func saveRun() {
         // 1
@@ -173,6 +175,7 @@ class RunViewController: UIViewController {
         if let detailViewController = segue.destinationViewController as? ResultViewController {
             detailViewController.run = run
             detailViewController.RunVCDelegat = self
+            detailViewController.managedObjectContext = managedObjectContext
         }
     }
     @IBAction func playMusicItem() {

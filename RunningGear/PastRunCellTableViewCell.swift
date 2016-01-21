@@ -10,6 +10,8 @@ import UIKit
 
 class PastRunCellTableViewCell: UITableViewCell {
 
+    var pastRunDelegate:PastRunCellDelegate?
+    var cellIndex:NSIndexPath?
     @IBOutlet weak var RunTracksImgView: UIImageView!
     @IBOutlet weak var DistanceLabel: UILabel!
     @IBOutlet weak var PaceLabel: UILabel!
@@ -18,7 +20,14 @@ class PastRunCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ShareBtn: UIButton!
     
-    @IBOutlet weak var Share2Public: UIButton!
+ 
+    @IBAction func share2Public() {
+        pastRunDelegate?.pastRunShare2Public(cellIndex!)
+    }
+    
+    @IBAction func deleteRunData() {
+        pastRunDelegate?.pastRunDeleteRecord(cellIndex!)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

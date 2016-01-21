@@ -58,16 +58,22 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrH-Ho-qM6">
                         <rect key="frame" x="314" y="0.0" width="66" height="149"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-pR-qAl">
-                                <rect key="frame" x="0.0" y="29" width="66" height="90"/>
-                                <state key="normal" image="share4Btn"/>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HgR-wM-N3U">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HgR-wM-N3U">
                                 <rect key="frame" x="0.0" y="0.0" width="66" height="29"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zio-gi-lrp">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zio-gi-lrp">
                                 <rect key="frame" x="0.0" y="119" width="66" height="30"/>
                                 <state key="normal" image="delete"/>
+                                <connections>
+                                    <action selector="deleteRunData" destination="UKV-2i-koo" eventType="touchUpInside" id="4wF-Ul-4Du"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-pR-qAl">
+                                <rect key="frame" x="0.0" y="30" width="66" height="90"/>
+                                <state key="normal" image="share4Btn"/>
+                                <connections>
+                                    <action selector="share2Public" destination="UKV-2i-koo" eventType="touchUpInside" id="0N0-ma-cGe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -114,7 +120,6 @@
                 <outlet property="DurationLabel" destination="A91-wl-6VI" id="BfF-DA-Dop"/>
                 <outlet property="PaceLabel" destination="ert-LK-dZu" id="7f0-de-e57"/>
                 <outlet property="RunTracksImgView" destination="kaZ-MA-ack" id="z1b-Gj-DMF"/>
-                <outlet property="Share2Public" destination="kAh-pR-qAl" id="zwY-MP-MjJ"/>
                 <outlet property="ShareBtn" destination="kAh-pR-qAl" id="V2e-Jb-d1k"/>
             </connections>
             <point key="canvasLocation" x="501" y="439"/>

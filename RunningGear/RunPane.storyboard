@@ -252,7 +252,7 @@
         <!--Result View Controller-->
         <scene sceneID="hH1-cX-JWW">
             <objects>
-                <viewController id="5kJ-wN-OAY" customClass="ResultViewController" customModule="RunningGear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultPane" id="5kJ-wN-OAY" customClass="ResultViewController" customModule="RunningGear" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Lm-yd-U8p"/>
                         <viewControllerLayoutGuide type="bottom" id="5qR-Bf-i11"/>

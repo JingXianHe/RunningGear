@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import HealthKit
+import CoreData
 
 class ResultViewController: UIViewController {
 
@@ -19,13 +20,35 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     weak var RunVCDelegat:RunViewController?
+    var managedObjectContext: NSManagedObjectContext?
+    var isPastPane:Bool = false
     
     @IBAction func dismiss2Home() {
-        dismissViewControllerAnimated(false) { () -> Void in
-            self.RunVCDelegat?.dismissViewControllerAnimated(true, completion: { () -> Void in
+
+        
+        if isPastPane{
+            dismissViewControllerAnimated(true, completion: { () -> Void in
                 
             })
+        }else{
+            let image:UIImage = getScreenShotOfMapView(ResultMapView.frame)
+            // Convert UIImage to JPEG
+            let imgData:NSData = UIImageJPEGRepresentation(image, 1); // 1 is compression quality
+            
+            // Identify the home directory and file name
+            NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Test.jpg"];
+            
+            // Write the file.  Choose YES atomically to enforce an all or none write. Use the NO flag if partially written files are okay which can occur in cases of corruption
+            [imgData writeToFile:jpgPath atomically:YES];
+            
+            
+            dismissViewControllerAnimated(false) { () -> Void in
+                self.RunVCDelegat?.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    
+                })
+            }
         }
+        isPastPane = false
     }
 
     
@@ -126,6 +149,14 @@ class ResultViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func getScreenShotOfMapView(targetFrame:CGRect) -> UIImage{
+        let frameSize:CGSize = targetFrame.size
+        UIGraphicsBeginImageContextWithOptions(frameSize, false, UIScreen.mainScreen().scale)
+        ResultMapView.drawViewHierarchyInRect(CGRectMake(0, 0, frameSize.width, frameSize.height), afterScreenUpdates: true)
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        return image
+    }
 
 }
 // MARK: - MKMapViewDelegate
