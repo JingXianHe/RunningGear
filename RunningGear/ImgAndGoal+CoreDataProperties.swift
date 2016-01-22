@@ -1,5 +1,5 @@
 //
-//  Location+CoreDataProperties.swift
+//  ImgAndGoal+CoreDataProperties.swift
 //  RunningGear
 //
 //  Created by beihaiSellshou on 1/22/16.
@@ -12,11 +12,10 @@
 import Foundation
 import CoreData
 
-extension Location {
+extension ImgAndGoal {
 
-    @NSManaged var latitude: NSNumber?
-    @NSManaged var longitude: NSNumber?
-    @NSManaged var timestamp: NSDate?
-    @NSManaged var run: Run?
+    @NSManaged var imgUrl: String?
+    @NSManaged var index: NSNumber?
+    @NSManaged var isCompleteGoal: NSNumber?
 
 }

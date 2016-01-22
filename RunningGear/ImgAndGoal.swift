@@ -1,5 +1,5 @@
 //
-//  Run.swift
+//  ImgAndGoal.swift
 //  RunningGear
 //
 //  Created by beihaiSellshou on 1/22/16.
@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Run: NSManagedObject {
+class ImgAndGoal: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FF0C5C671C3FC8A0001BBD17 /* RunPane.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0C5C661C3FC8A0001BBD17 /* RunPane.storyboard */; };
-		FF1746051C488CB8001384FA /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1746031C488CB8001384FA /* Run+CoreDataProperties.swift */; };
-		FF1746061C488CB8001384FA /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1746041C488CB8001384FA /* Run.swift */; };
-		FF1746091C488CCF001384FA /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1746071C488CCF001384FA /* Location+CoreDataProperties.swift */; };
-		FF17460A1C488CCF001384FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1746081C488CCF001384FA /* Location.swift */; };
 		FF2E5E651C3CF15D00586E43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E641C3CF15D00586E43 /* AppDelegate.swift */; };
 		FF2E5E671C3CF15D00586E43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E661C3CF15D00586E43 /* ViewController.swift */; };
 		FF2E5E6A1C3CF15D00586E43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2E5E681C3CF15D00586E43 /* Main.storyboard */; };
@@ -24,6 +20,13 @@
 		FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */; };
 		FF5A7FED1C47B257009CFC47 /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */; };
 		FF85B71F1C3FAF4A0097D78A /* JXHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85B71E1C3FAF4A0097D78A /* JXHButton.swift */; };
+		FF8F441E1C52299A00CDD12C /* RunningGearReal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF8F441C1C52299A00CDD12C /* RunningGearReal.xcdatamodeld */; };
+		FF8F44211C522D9E00CDD12C /* Run+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F441F1C522D9E00CDD12C /* Run+CoreDataProperties.swift */; };
+		FF8F44221C522D9E00CDD12C /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F44201C522D9E00CDD12C /* Run.swift */; };
+		FF8F44251C522DAB00CDD12C /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F44231C522DAB00CDD12C /* Location+CoreDataProperties.swift */; };
+		FF8F44261C522DAB00CDD12C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F44241C522DAB00CDD12C /* Location.swift */; };
+		FF8F44291C522DB900CDD12C /* ImgAndGoal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F44271C522DB900CDD12C /* ImgAndGoal+CoreDataProperties.swift */; };
+		FF8F442A1C522DB900CDD12C /* ImgAndGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8F44281C522DB900CDD12C /* ImgAndGoal.swift */; };
 		FFBBE4881C4F1AF500FACB7B /* ModelAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBBE4871C4F1AF500FACB7B /* ModelAnimator.swift */; };
 		FFBBE48B1C4F38BD00FACB7B /* PastRun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFBBE48A1C4F38BD00FACB7B /* PastRun.storyboard */; };
 		FFBBE48E1C4F391500FACB7B /* PastRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBBE48D1C4F391400FACB7B /* PastRunViewController.swift */; };
@@ -51,10 +54,6 @@
 
 /* Begin PBXFileReference section */
 		FF0C5C661C3FC8A0001BBD17 /* RunPane.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RunPane.storyboard; sourceTree = "<group>"; };
-		FF1746031C488CB8001384FA /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FF1746041C488CB8001384FA /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
-		FF1746071C488CCF001384FA /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FF1746081C488CCF001384FA /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FF2E5E611C3CF15D00586E43 /* RunningGear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningGear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2E5E641C3CF15D00586E43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF2E5E661C3CF15D00586E43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +72,13 @@
 		FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
 		FF85B71E1C3FAF4A0097D78A /* JXHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXHButton.swift; sourceTree = "<group>"; };
+		FF8F441D1C52299A00CDD12C /* RunningGearReal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunningGearReal.xcdatamodel; sourceTree = "<group>"; };
+		FF8F441F1C522D9E00CDD12C /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FF8F44201C522D9E00CDD12C /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		FF8F44231C522DAB00CDD12C /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FF8F44241C522DAB00CDD12C /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		FF8F44271C522DB900CDD12C /* ImgAndGoal+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImgAndGoal+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FF8F44281C522DB900CDD12C /* ImgAndGoal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgAndGoal.swift; sourceTree = "<group>"; };
 		FFBBE4871C4F1AF500FACB7B /* ModelAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelAnimator.swift; sourceTree = "<group>"; };
 		FFBBE48A1C4F38BD00FACB7B /* PastRun.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PastRun.storyboard; sourceTree = "<group>"; };
 		FFBBE48D1C4F391400FACB7B /* PastRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 				FF2E5E6D1C3CF15D00586E43 /* LaunchScreen.storyboard */,
 				FF2E5E701C3CF15D00586E43 /* Info.plist */,
 				FF5A7FE11C479630009CFC47 /* RunningGear.xcdatamodeld */,
+				FF8F441C1C52299A00CDD12C /* RunningGearReal.xcdatamodeld */,
 			);
 			path = RunningGear;
 			sourceTree = "<group>";
@@ -174,10 +181,12 @@
 			isa = PBXGroup;
 			children = (
 				FFBBE4871C4F1AF500FACB7B /* ModelAnimator.swift */,
-				FF1746031C488CB8001384FA /* Run+CoreDataProperties.swift */,
-				FF1746041C488CB8001384FA /* Run.swift */,
-				FF1746071C488CCF001384FA /* Location+CoreDataProperties.swift */,
-				FF1746081C488CCF001384FA /* Location.swift */,
+				FF8F441F1C522D9E00CDD12C /* Run+CoreDataProperties.swift */,
+				FF8F44201C522D9E00CDD12C /* Run.swift */,
+				FF8F44231C522DAB00CDD12C /* Location+CoreDataProperties.swift */,
+				FF8F44241C522DAB00CDD12C /* Location.swift */,
+				FF8F44271C522DB900CDD12C /* ImgAndGoal+CoreDataProperties.swift */,
+				FF8F44281C522DB900CDD12C /* ImgAndGoal.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -410,19 +419,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF2E5E671C3CF15D00586E43 /* ViewController.swift in Sources */,
-				FF17460A1C488CCF001384FA /* Location.swift in Sources */,
-				FF1746061C488CB8001384FA /* Run.swift in Sources */,
 				FF5A7FED1C47B257009CFC47 /* MulticolorPolylineSegment.swift in Sources */,
+				FF8F44221C522D9E00CDD12C /* Run.swift in Sources */,
 				FF2E5E651C3CF15D00586E43 /* AppDelegate.swift in Sources */,
+				FF8F44211C522D9E00CDD12C /* Run+CoreDataProperties.swift in Sources */,
 				FFBBE4931C4F5EB700FACB7B /* PastRunCellTableViewCell.swift in Sources */,
-				FF1746091C488CCF001384FA /* Location+CoreDataProperties.swift in Sources */,
+				FF8F442A1C522DB900CDD12C /* ImgAndGoal.swift in Sources */,
 				FFBBE4881C4F1AF500FACB7B /* ModelAnimator.swift in Sources */,
+				FF8F44261C522DAB00CDD12C /* Location.swift in Sources */,
 				FF5A7FE31C479630009CFC47 /* RunningGear.xcdatamodeld in Sources */,
+				FF8F44251C522DAB00CDD12C /* Location+CoreDataProperties.swift in Sources */,
 				FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */,
 				FFC062A71C40BB2700B2B4AD /* RunViewController.swift in Sources */,
+				FF8F44291C522DB900CDD12C /* ImgAndGoal+CoreDataProperties.swift in Sources */,
 				FF85B71F1C3FAF4A0097D78A /* JXHButton.swift in Sources */,
-				FF1746051C488CB8001384FA /* Run+CoreDataProperties.swift in Sources */,
 				FFBBE48E1C4F391500FACB7B /* PastRunViewController.swift in Sources */,
+				FF8F441E1C52299A00CDD12C /* RunningGearReal.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +691,16 @@
 			);
 			currentVersion = FF5A7FE21C479630009CFC47 /* RunningGear.xcdatamodel */;
 			path = RunningGear.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		FF8F441C1C52299A00CDD12C /* RunningGearReal.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FF8F441D1C52299A00CDD12C /* RunningGearReal.xcdatamodel */,
+			);
+			currentVersion = FF8F441D1C52299A00CDD12C /* RunningGearReal.xcdatamodel */;
+			path = RunningGearReal.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

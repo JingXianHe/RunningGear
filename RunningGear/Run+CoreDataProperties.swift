@@ -2,7 +2,7 @@
 //  Run+CoreDataProperties.swift
 //  RunningGear
 //
-//  Created by beihaiSellshou on 1/15/16.
+//  Created by beihaiSellshou on 1/22/16.
 //  Copyright © 2016 JXHDev. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,6 +16,7 @@ extension Run {
 
     @NSManaged var distance: NSNumber?
     @NSManaged var duration: NSNumber?
+    @NSManaged var index4Img: NSNumber?
     @NSManaged var timestamp: NSDate?
     @NSManaged var locations: NSOrderedSet?
 

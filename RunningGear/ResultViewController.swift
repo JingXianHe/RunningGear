@@ -33,15 +33,39 @@ class ResultViewController: UIViewController {
         }else{
             let image:UIImage = getScreenShotOfMapView(ResultMapView.frame)
             // Convert UIImage to JPEG
-            let imgData:NSData = UIImageJPEGRepresentation(image, 1); // 1 is compression quality
+            let imgData:NSData =  UIImageJPEGRepresentation(image, 1.0)! // 1 is compression quality
             
             // Identify the home directory and file name
-            NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Test.jpg"];
+            let user:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            var imgName = user.objectForKey("RunningGearName") as? NSNumber
+            if imgName == nil{
+                imgName = (0)
+            }
+            imgName = ((imgName?.integerValue)! + 1)
+            user.setObject(imgName, forKey: "RunningGearName")
+            
+            let jpgPath:String = NSHomeDirectory().stringByAppendingString(String(format: "/Documents/RGImg%@.png",(imgName?.stringValue)!))
             
             // Write the file.  Choose YES atomically to enforce an all or none write. Use the NO flag if partially written files are okay which can occur in cases of corruption
-            [imgData writeToFile:jpgPath atomically:YES];
-            
-            
+            imgData.writeToFile(jpgPath, atomically: true)
+            let savedImgAndGoal = NSEntityDescription.insertNewObjectForEntityForName("ImgAndGoal",
+                inManagedObjectContext: managedObjectContext!) as! ImgAndGoal
+            savedImgAndGoal.index = ((imgName?.integerValue)! - 1)
+            savedImgAndGoal.imgUrl = String(format:"RGImg%@.png",(imgName?.stringValue)!)
+            savedImgAndGoal.isCompleteGoal = false
+
+
+            if managedObjectContext!.hasChanges {
+                do {
+                    try managedObjectContext!.save()
+                } catch {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    let nserror = error as NSError
+                    NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                    abort()
+                }
+            }
             dismissViewControllerAnimated(false) { () -> Void in
                 self.RunVCDelegat?.dismissViewControllerAnimated(true, completion: { () -> Void in
                     

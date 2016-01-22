@@ -94,7 +94,7 @@
                                                         <rect key="frame" x="16" y="23" width="128" height="68"/>
                                                         <color key="backgroundColor" red="0.070588235289999995" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <state key="normal" title="My Log" image="document"/>
+                                                        <state key="normal" title="Archive" image="document"/>
                                                         <connections>
                                                             <action selector="goToZone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cl0-sQ-Z36"/>
                                                         </connections>

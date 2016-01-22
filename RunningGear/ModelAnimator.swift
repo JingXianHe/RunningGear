@@ -36,18 +36,26 @@ extension ModelAnimator:UIViewControllerAnimatedTransitioning{
                 x: CGRectGetMidX(initialFrame),
                 y: CGRectGetMidY(initialFrame))
             herbView.clipsToBounds = true
-             herbView.layer.cornerRadius = 40/xScaleFactor
-            let finalRadius:CGFloat = presenting ? 0.0 : 40/xScaleFactor
-            let morphAnimation = CABasicAnimation(keyPath: "Alpha")
-            morphAnimation.duration = 0.9
+            let finalRadius:CGFloat = presenting ? 0.0 : 45/xScaleFactor
+            let morphAnimation = CABasicAnimation(keyPath: "cornerRadius")
+            morphAnimation.duration = 1.5
+            morphAnimation.fromValue = 45/xScaleFactor
             morphAnimation.toValue = finalRadius
-            morphAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-            morphAnimation.delegate = self
+            morphAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            //morphAnimation.delegate = self
             morphAnimation.setValue(herbView, forKey: "target")
             morphAnimation.setValue(finalRadius, forKey: "setValue")
             herbView.layer.addAnimation(morphAnimation, forKey: nil)
             containerView.addSubview(toView)
             containerView.bringSubviewToFront(herbView)
+            
+            let morphAnimation1 = CABasicAnimation(keyPath: "opacity")
+            morphAnimation1.duration = 1.0
+            morphAnimation1.fromValue = 0.6
+            morphAnimation1.toValue = 1.0
+            morphAnimation1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            herbView.layer.addAnimation(morphAnimation1, forKey: nil)
+            
             
             UIView.animateWithDuration(duration, delay:0.4, usingSpringWithDamping: 0.4, initialSpringVelocity:0.0, options: [], animations: {
                 herbView.transform = self.presenting ?
@@ -70,6 +78,13 @@ extension ModelAnimator:UIViewControllerAnimatedTransitioning{
             containerView.addSubview(toView)
             containerView.bringSubviewToFront(herbView)
             
+            let morphAnimation1 = CABasicAnimation(keyPath: "opacity")
+            morphAnimation1.duration = duration
+            morphAnimation1.fromValue = 1.0
+            morphAnimation1.toValue = 0.8
+            morphAnimation1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            herbView.layer.addAnimation(morphAnimation1, forKey: nil)
+            
             UIView.animateWithDuration(duration/2, animations: { () -> Void in
                 herbView.transform = self.presenting ?
                     CGAffineTransformIdentity : scaleTransform
@@ -80,12 +95,6 @@ extension ModelAnimator:UIViewControllerAnimatedTransitioning{
 
         }
 
-        
-    }
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        let herbView = anim.valueForKey("target") as! UIView
-        let finalValue = anim.valueForKey("setValue") as! CGFloat
-        herbView.layer.cornerRadius = finalValue
         
     }
 

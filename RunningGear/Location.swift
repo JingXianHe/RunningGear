@@ -2,7 +2,7 @@
 //  Location.swift
 //  RunningGear
 //
-//  Created by beihaiSellshou on 1/15/16.
+//  Created by beihaiSellshou on 1/22/16.
 //  Copyright © 2016 JXHDev. All rights reserved.
 //
 

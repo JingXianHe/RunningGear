@@ -10,11 +10,12 @@ import UIKit
 import CoreData
 protocol PastRunCellDelegate {
     func pastRunShare2Public(indexPath: NSIndexPath)
-    func pastRunDeleteRecord(indexPath:NSIndexPath)
+    func pastRunDeleteRecord(indexPath:NSIndexPath, InputIndex inputIndex:Int)
 }
 class PastRunViewController: UIViewController {
     
     var runList = [Run]()
+    var imgUrlList = [ImgAndGoal]()
     var managedObjectContext: NSManagedObjectContext?
     
     @IBOutlet weak var PastRunList: UITableView!
@@ -31,11 +32,12 @@ class PastRunViewController: UIViewController {
         PastRunList.dataSource = self
         PastRunList.delegate = self
         let request = NSFetchRequest(entityName: "Run")
+        let requestImg = NSFetchRequest(entityName: "ImgAndGoal")
         
         do{
             
             runList = try (managedObjectContext?.executeFetchRequest(request))! as! [Run]
-            
+            imgUrlList = try (managedObjectContext?.executeFetchRequest(requestImg))! as! [ImgAndGoal]
         }catch let error as NSError{
             
         }
@@ -86,6 +88,16 @@ extension PastRunViewController:UITableViewDataSource{
         cell?.pastRunDelegate = self
         cell?.cellIndex = indexPath
         cell?.selectionStyle = .None
+        let index4Img = runList[indexPath.row].index4Img?.integerValue
+        for item in imgUrlList{
+            if item.index?.integerValue == index4Img{
+                let jpgPath:String = NSHomeDirectory().stringByAppendingString(String(format: "/Documents/%@",item.imgUrl!))
+                
+                cell?.tempView.layer.contents = UIImage(named: jpgPath)?.CGImage as?AnyObject
+                cell?.index4Img = index4Img!
+            }
+        }
+        
         return cell!;
     }
     
@@ -109,9 +121,31 @@ extension PastRunViewController:PastRunCellDelegate{
     func pastRunShare2Public(indexPath: NSIndexPath){
         print("\(indexPath.row)")
     }
-    func pastRunDeleteRecord(indexPath: NSIndexPath){
+    func pastRunDeleteRecord(indexPath: NSIndexPath, InputIndex inputIndex:Int){
         managedObjectContext!.deleteObject(runList[indexPath.row] as NSManagedObject)
         runList.removeAtIndex(indexPath.row)
+        for item in imgUrlList{
+            if item.index?.integerValue == inputIndex{
+                
+                let fileMgr = NSFileManager()
+                let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+                
+                if let directoryContents = try? fileMgr.contentsOfDirectoryAtPath(dirPath) {
+                    for path in directoryContents {
+                        if path == item.imgUrl{
+                            let fullPath = (dirPath as NSString).stringByAppendingPathComponent(path)
+                            
+                            let removeSuccess = try? fileMgr.removeItemAtPath(fullPath)
+                            managedObjectContext!.deleteObject(item as NSManagedObject)
+                        }
+                        
+                    }
+                }
+                
+            }
+        }
+        
+        
         PastRunList.reloadData()
         do{
             

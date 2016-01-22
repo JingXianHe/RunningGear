@@ -10,8 +10,10 @@ import UIKit
 
 class PastRunCellTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var tempView: UIView!
     var pastRunDelegate:PastRunCellDelegate?
     var cellIndex:NSIndexPath?
+    var index4Img:Int = 0
     @IBOutlet weak var RunTracksImgView: UIImageView!
     @IBOutlet weak var DistanceLabel: UILabel!
     @IBOutlet weak var PaceLabel: UILabel!
@@ -26,7 +28,7 @@ class PastRunCellTableViewCell: UITableViewCell {
     }
     
     @IBAction func deleteRunData() {
-        pastRunDelegate?.pastRunDeleteRecord(cellIndex!)
+        pastRunDelegate?.pastRunDeleteRecord(cellIndex!, InputIndex: index4Img)
     }
     override func awakeFromNib() {
         super.awakeFromNib()

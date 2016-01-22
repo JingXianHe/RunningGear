@@ -143,6 +143,12 @@ class RunViewController: UIViewController {
         savedRun.distance = distance
         savedRun.duration = seconds
         savedRun.timestamp = NSDate()
+        let user:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        var imgName = user.objectForKey("RunningGearName") as? NSNumber
+        if imgName == nil{
+            imgName = (0)
+        }
+        savedRun.index4Img = imgName
         
         // 2
         var savedLocations = [Location]()
