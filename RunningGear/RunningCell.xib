@@ -39,10 +39,10 @@
                                 <rect key="frame" x="240" y="0.0" width="30" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shoes" translatesAutoresizingMaskIntoConstraints="NO" id="t8N-VA-aaC">
-                                        <rect key="frame" x="0.0" y="5" width="30" height="30"/>
+                                        <rect key="frame" x="3" y="8" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="XWp-YT-sW2"/>
-                                            <constraint firstAttribute="width" constant="30" id="jdP-7X-2wj"/>
+                                            <constraint firstAttribute="height" constant="25" id="XWp-YT-sW2"/>
+                                            <constraint firstAttribute="width" constant="25" id="jdP-7X-2wj"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -57,10 +57,10 @@
                                 <rect key="frame" x="240" y="40" width="30" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="9tJ-vF-shZ">
-                                        <rect key="frame" x="0.0" y="5" width="30" height="30"/>
+                                        <rect key="frame" x="3" y="8" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="SJ4-9o-5JP"/>
-                                            <constraint firstAttribute="height" constant="30" id="lvX-MB-nq7"/>
+                                            <constraint firstAttribute="width" constant="25" id="SJ4-9o-5JP"/>
+                                            <constraint firstAttribute="height" constant="25" id="lvX-MB-nq7"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -76,10 +76,10 @@
                                 <rect key="frame" x="240" y="117" width="30" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="zAc-Kh-eir">
-                                        <rect key="frame" x="0.0" y="5" width="30" height="30"/>
+                                        <rect key="frame" x="3" y="8" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="A9n-g2-Gqx"/>
-                                            <constraint firstAttribute="height" constant="30" id="P4z-Vz-4Qe"/>
+                                            <constraint firstAttribute="width" constant="25" id="A9n-g2-Gqx"/>
+                                            <constraint firstAttribute="height" constant="25" id="P4z-Vz-4Qe"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -129,32 +129,46 @@
                         <rect key="frame" x="0.0" y="157" width="380" height="30"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-pR-qAl">
-                                <rect key="frame" x="0.0" y="0.0" width="190" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="pne-k3-654"/>
+                                </constraints>
                                 <state key="normal" image="share4Btn"/>
                                 <connections>
                                     <action selector="share2Public" destination="UKV-2i-koo" eventType="touchUpInside" id="0N0-ma-cGe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zio-gi-lrp">
-                                <rect key="frame" x="190" y="0.0" width="190" height="30"/>
+                                <rect key="frame" x="220" y="0.0" width="160" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="L3l-Aa-B2P"/>
+                                </constraints>
                                 <state key="normal" image="delete"/>
                                 <connections>
                                     <action selector="deleteRunData" destination="UKV-2i-koo" eventType="touchUpInside" id="4wF-Ul-4Du"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZe-V7-qnM">
+                                <rect key="frame" x="189" y="0.0" width="2" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="2" id="BLj-gU-aN3"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.070588235289999995" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="sZe-V7-qnM" firstAttribute="top" secondItem="TiE-a5-kp6" secondAttribute="top" id="0wU-kT-LnS"/>
                             <constraint firstItem="zio-gi-lrp" firstAttribute="width" secondItem="kAh-pR-qAl" secondAttribute="width" id="42E-Id-Avw"/>
                             <constraint firstAttribute="bottom" secondItem="kAh-pR-qAl" secondAttribute="bottom" id="4oy-6V-Qdu"/>
                             <constraint firstAttribute="trailing" secondItem="zio-gi-lrp" secondAttribute="trailing" id="5lc-tH-yHm"/>
                             <constraint firstAttribute="height" constant="30" id="BxQ-sg-eu6"/>
-                            <constraint firstItem="zio-gi-lrp" firstAttribute="leading" secondItem="kAh-pR-qAl" secondAttribute="trailing" id="Q40-FK-XZO"/>
+                            <constraint firstItem="sZe-V7-qnM" firstAttribute="centerX" secondItem="TiE-a5-kp6" secondAttribute="centerX" id="Oh9-E0-LMG"/>
                             <constraint firstItem="zio-gi-lrp" firstAttribute="top" secondItem="TiE-a5-kp6" secondAttribute="top" id="X1U-HL-6Xq"/>
                             <constraint firstAttribute="bottom" secondItem="zio-gi-lrp" secondAttribute="bottom" id="ZhD-ZG-BzS"/>
                             <constraint firstItem="kAh-pR-qAl" firstAttribute="leading" secondItem="TiE-a5-kp6" secondAttribute="leading" id="eXj-Gy-UDj"/>
-                            <constraint firstItem="zio-gi-lrp" firstAttribute="leading" secondItem="kAh-pR-qAl" secondAttribute="trailing" id="gMq-Vd-9Vs"/>
                             <constraint firstItem="kAh-pR-qAl" firstAttribute="top" secondItem="TiE-a5-kp6" secondAttribute="top" id="n0R-jo-7De"/>
+                            <constraint firstAttribute="bottom" secondItem="sZe-V7-qnM" secondAttribute="bottom" id="o2H-kY-e5O"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -184,8 +198,8 @@
     <resources>
         <image name="clock" width="100" height="100"/>
         <image name="date" width="100" height="100"/>
-        <image name="delete" width="380" height="60"/>
-        <image name="share4Btn" width="380" height="60"/>
+        <image name="delete" width="320" height="60"/>
+        <image name="share4Btn" width="320" height="60"/>
         <image name="shoes" width="100" height="100"/>
     </resources>
 </document>

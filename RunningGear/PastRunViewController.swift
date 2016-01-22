@@ -24,6 +24,7 @@ class PastRunViewController: UIViewController {
             
         }
     }
+    
     let cellReuseIdentifier: String = "RunPastCell"
     override func viewDidLoad() {
         super.viewDidLoad()

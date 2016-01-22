@@ -16,7 +16,6 @@
 		FF2E5E7A1C3CF15D00586E43 /* RunningGearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E791C3CF15D00586E43 /* RunningGearTests.swift */; };
 		FF2E5E851C3CF15D00586E43 /* RunningGearUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E841C3CF15D00586E43 /* RunningGearUITests.swift */; };
 		FF5A7FE01C47956D009CFC47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5A7FDF1C47956D009CFC47 /* CoreData.framework */; };
-		FF5A7FE31C479630009CFC47 /* RunningGear.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FE11C479630009CFC47 /* RunningGear.xcdatamodeld */; };
 		FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */; };
 		FF5A7FED1C47B257009CFC47 /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */; };
 		FF85B71F1C3FAF4A0097D78A /* JXHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85B71E1C3FAF4A0097D78A /* JXHButton.swift */; };
@@ -68,7 +67,6 @@
 		FF2E5E841C3CF15D00586E43 /* RunningGearUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningGearUITests.swift; sourceTree = "<group>"; };
 		FF2E5E861C3CF15D00586E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF5A7FDF1C47956D009CFC47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		FF5A7FE21C479630009CFC47 /* RunningGear.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunningGear.xcdatamodel; sourceTree = "<group>"; };
 		FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
 		FF85B71E1C3FAF4A0097D78A /* JXHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXHButton.swift; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 				FF2E5E6B1C3CF15D00586E43 /* Assets.xcassets */,
 				FF2E5E6D1C3CF15D00586E43 /* LaunchScreen.storyboard */,
 				FF2E5E701C3CF15D00586E43 /* Info.plist */,
-				FF5A7FE11C479630009CFC47 /* RunningGear.xcdatamodeld */,
 				FF8F441C1C52299A00CDD12C /* RunningGearReal.xcdatamodeld */,
 			);
 			path = RunningGear;
@@ -427,7 +424,6 @@
 				FF8F442A1C522DB900CDD12C /* ImgAndGoal.swift in Sources */,
 				FFBBE4881C4F1AF500FACB7B /* ModelAnimator.swift in Sources */,
 				FF8F44261C522DAB00CDD12C /* Location.swift in Sources */,
-				FF5A7FE31C479630009CFC47 /* RunningGear.xcdatamodeld in Sources */,
 				FF8F44251C522DAB00CDD12C /* Location+CoreDataProperties.swift in Sources */,
 				FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */,
 				FFC062A71C40BB2700B2B4AD /* RunViewController.swift in Sources */,
@@ -684,16 +680,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FF5A7FE11C479630009CFC47 /* RunningGear.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FF5A7FE21C479630009CFC47 /* RunningGear.xcdatamodel */,
-			);
-			currentVersion = FF5A7FE21C479630009CFC47 /* RunningGear.xcdatamodel */;
-			path = RunningGear.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		FF8F441C1C52299A00CDD12C /* RunningGearReal.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
