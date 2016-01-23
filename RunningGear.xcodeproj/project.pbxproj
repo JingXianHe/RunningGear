@@ -32,6 +32,7 @@
 		FFBBE4901C4F488C00FACB7B /* RunningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFBBE48F1C4F488C00FACB7B /* RunningCell.xib */; };
 		FFBBE4931C4F5EB700FACB7B /* PastRunCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBBE4921C4F5EB700FACB7B /* PastRunCellTableViewCell.swift */; };
 		FFC062A71C40BB2700B2B4AD /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC062A61C40BB2700B2B4AD /* RunViewController.swift */; };
+		FFE289A21C537FAE00EE56DB /* SettingPane.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE289A11C537FAE00EE56DB /* SettingPane.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		FFBBE48F1C4F488C00FACB7B /* RunningCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunningCell.xib; sourceTree = "<group>"; };
 		FFBBE4921C4F5EB700FACB7B /* PastRunCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunCellTableViewCell.swift; sourceTree = "<group>"; };
 		FFC062A61C40BB2700B2B4AD /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
+		FFE289A11C537FAE00EE56DB /* SettingPane.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingPane.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		FF2E5E631C3CF15D00586E43 /* RunningGear */ = {
 			isa = PBXGroup;
 			children = (
+				FFE2899F1C537F8400EE56DB /* Setting */,
 				FFBBE4891C4F387C00FACB7B /* PastRun */,
 				FFBAB1D11C3FC17A00A998AC /* Run */,
 				FFBAB1CE1C3FC0E600A998AC /* Tools */,
@@ -276,6 +279,22 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		FFE2899F1C537F8400EE56DB /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				FFE289A01C537F9300EE56DB /* StoryBoard */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		FFE289A01C537F9300EE56DB /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				FFE289A11C537FAE00EE56DB /* SettingPane.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -388,6 +407,7 @@
 				FF2E5E6F1C3CF15D00586E43 /* LaunchScreen.storyboard in Resources */,
 				FF2E5E6C1C3CF15D00586E43 /* Assets.xcassets in Resources */,
 				FF0C5C671C3FC8A0001BBD17 /* RunPane.storyboard in Resources */,
+				FFE289A21C537FAE00EE56DB /* SettingPane.storyboard in Resources */,
 				FFBBE4901C4F488C00FACB7B /* RunningCell.xib in Resources */,
 				FF2E5E6A1C3CF15D00586E43 /* Main.storyboard in Resources */,
 				FFBBE48B1C4F38BD00FACB7B /* PastRun.storyboard in Resources */,
