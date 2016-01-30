@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class SettingPaneViewController: UIViewController {
 
@@ -22,7 +23,8 @@ class SettingPaneViewController: UIViewController {
     @IBOutlet weak var enableSetGoalBtn: UIButton!
     
     var isSetGoal:Bool = false
-    
+    let healthManager:HealthManager = HealthManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -92,6 +94,22 @@ class SettingPaneViewController: UIViewController {
         dismissViewControllerAnimated(true) { () -> Void in
             
         }
+    }
+    @IBAction func ask4HealthKitAuthor() {
+        healthManager.authorizeHealthKit {
+            (authorized,  error) -> Void in
+            if authorized {
+                //print("HealthKit authorization received.")
+            }
+            else
+            {
+//                print("HealthKit authorization denied!")
+//                if error != nil {
+//                    print("\(error)")
+//                }
+            }
+        }
+
     }
     /*
     // MARK: - Navigation

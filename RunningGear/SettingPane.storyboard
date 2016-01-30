@@ -211,6 +211,9 @@
                                                 <state key="normal" title="Authorize HealthKit">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="ask4HealthKitAuthor" destination="m1A-tU-9bn" eventType="touchUpInside" id="hug-17-sel"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
