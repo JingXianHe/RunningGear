@@ -54,6 +54,13 @@ class ViewController: UIViewController {
             presentViewController(nav, animated: true) { () -> Void in
                 
             }
+        }else if(tag4Btn == 4){
+            let mystoryboard = UIStoryboard(name: "SettingPane", bundle: nil)
+            let nav = mystoryboard.instantiateViewControllerWithIdentifier("SettingPane") as! SettingPaneViewController
+            nav.transitioningDelegate = self
+            presentViewController(nav, animated: true) { () -> Void in
+                
+            }
         }
         
     }

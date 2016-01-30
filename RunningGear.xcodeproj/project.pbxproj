@@ -15,6 +15,7 @@
 		FF2E5E6F1C3CF15D00586E43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2E5E6D1C3CF15D00586E43 /* LaunchScreen.storyboard */; };
 		FF2E5E7A1C3CF15D00586E43 /* RunningGearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E791C3CF15D00586E43 /* RunningGearTests.swift */; };
 		FF2E5E851C3CF15D00586E43 /* RunningGearUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2E5E841C3CF15D00586E43 /* RunningGearUITests.swift */; };
+		FF3BFF441C5C9DBA00F68BF8 /* SettingPaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3BFF431C5C9DBA00F68BF8 /* SettingPaneViewController.swift */; };
 		FF5A7FE01C47956D009CFC47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5A7FDF1C47956D009CFC47 /* CoreData.framework */; };
 		FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */; };
 		FF5A7FED1C47B257009CFC47 /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */; };
@@ -67,6 +68,7 @@
 		FF2E5E801C3CF15D00586E43 /* RunningGearUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunningGearUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2E5E841C3CF15D00586E43 /* RunningGearUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningGearUITests.swift; sourceTree = "<group>"; };
 		FF2E5E861C3CF15D00586E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF3BFF431C5C9DBA00F68BF8 /* SettingPaneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingPaneViewController.swift; sourceTree = "<group>"; };
 		FF5A7FDF1C47956D009CFC47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FF5A7FE91C47A7D3009CFC47 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		FF5A7FEC1C47B257009CFC47 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
@@ -177,6 +179,14 @@
 			path = RunningGearUITests;
 			sourceTree = "<group>";
 		};
+		FF3BFF421C5C9D7E00F68BF8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FF3BFF431C5C9DBA00F68BF8 /* SettingPaneViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		FF5A7FE41C4797A7009CFC47 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +292,7 @@
 		FFE2899F1C537F8400EE56DB /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				FF3BFF421C5C9D7E00F68BF8 /* Controller */,
 				FFE289A01C537F9300EE56DB /* StoryBoard */,
 			);
 			name = Setting;
@@ -447,6 +458,7 @@
 				FF8F44251C522DAB00CDD12C /* Location+CoreDataProperties.swift in Sources */,
 				FF5A7FEA1C47A7D3009CFC47 /* ResultViewController.swift in Sources */,
 				FFC062A71C40BB2700B2B4AD /* RunViewController.swift in Sources */,
+				FF3BFF441C5C9DBA00F68BF8 /* SettingPaneViewController.swift in Sources */,
 				FF8F44291C522DB900CDD12C /* ImgAndGoal+CoreDataProperties.swift in Sources */,
 				FF85B71F1C3FAF4A0097D78A /* JXHButton.swift in Sources */,
 				FFBBE48E1C4F391500FACB7B /* PastRunViewController.swift in Sources */,
