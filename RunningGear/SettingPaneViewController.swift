@@ -22,8 +22,18 @@ class SettingPaneViewController: UIViewController {
     
     @IBOutlet weak var enableSetGoalBtn: UIButton!
     
+    @IBOutlet weak var workoutBtn: UIButton!
+    
+    @IBOutlet weak var weightText: UITextField!
+    
+    @IBOutlet weak var heightText: UITextField!
+    
     var isSetGoal:Bool = false
     let healthManager:HealthManager = HealthManager()
+    var weight:Double = 0.0
+    var height:Double = 0.0
+    
+    weak var textField4Weight: UITextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +63,55 @@ class SettingPaneViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func go2Workouts(sender: UIButton) {
+        if weight == 0.0 {
+            let alert = UIAlertController(title: "Weight (kg)", message: "Please input weight for calorie calculation", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addTextFieldWithConfigurationHandler(configurationTextField)
+            
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler:handleCancel))
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+                if let weightIndex = self.textField4Weight?.text
+                {
+                    if let weightValue = NSNumberFormatter().numberFromString(weightIndex)?.doubleValue{
+                        self.weight = weightValue
+                        let mystoryboard = UIStoryboard(name: "PastRun", bundle: nil)
+                        let nav = mystoryboard.instantiateViewControllerWithIdentifier("pastRun") as! PastRunViewController
+                        nav.isPaneSettingMode = true
+                        nav.weightValue = self.weight
+                        self.presentViewController(nav, animated: true) { () -> Void in
+                            
+                        }
+                    }
+                }
+                
+            }))
+            self.presentViewController(alert, animated: true, completion: {
+                
+            })
+        }else{
+            let mystoryboard = UIStoryboard(name: "PastRun", bundle: nil)
+            let nav = mystoryboard.instantiateViewControllerWithIdentifier("pastRun") as! PastRunViewController
+            nav.isPaneSettingMode = true
+            nav.weightValue = self.weight
+            self.presentViewController(nav, animated: true) { () -> Void in
+                
+            }
+        }
+        
+        
+    }
+    func configurationTextField(textField: UITextField!)
+    {
+        
+        self.textField4Weight = textField
+    }
+    
+    
+    func handleCancel(alertView: UIAlertAction!)
+    {
+        
+    }
 
     @IBAction func distanceChange(sender: AnyObject) {
         let receiver:UISlider = sender as! UISlider
@@ -100,6 +159,14 @@ class SettingPaneViewController: UIViewController {
             (authorized,  error) -> Void in
             if authorized {
                 //print("HealthKit authorization received.")
+                dispatch_async(dispatch_get_main_queue(),{() -> Void in
+                    self.workoutBtn.userInteractionEnabled = true;
+                    self.workoutBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+                    self.updateWeight()
+                    self.updateHeight()
+                });
+                
+                
             }
             else
             {
@@ -110,6 +177,63 @@ class SettingPaneViewController: UIViewController {
             }
         }
 
+    }
+    func updateWeight()
+    {
+        //读取重量
+        // 1. Construct an HKSampleType for weight
+        let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        
+        // 2. Call the method to read the most recent weight sample
+        self.healthManager.readMostRecentSample(sampleType!, completion: { (mostRecentWeight, error) -> Void in
+            
+            if( error != nil )
+            {
+                print("Error reading weight from HealthKit Store: \(error.localizedDescription)")
+                return;
+            }
+            var weight4Input:Double = 0.0
+            // 3. Format the weight to display it on the screen
+            let weight = mostRecentWeight as? HKQuantitySample;
+            if let kilograms = weight?.quantity.doubleValueForUnit(HKUnit.gramUnitWithMetricPrefix(.Kilo)) {
+                weight4Input = kilograms
+            }
+            self.weight = weight4Input
+            // 4. Update UI in the main thread
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.weightText.text = String(format:"%.1f",weight4Input)
+                
+            });
+        });
+    }
+    func updateHeight()
+    {
+        // 1. Construct an HKSampleType for Height
+        let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
+        
+        // 2. Call the method to read the most recent Height sample
+        self.healthManager.readMostRecentSample(sampleType!, completion: { (mostRecentHeight, error) -> Void in
+            
+            if( error != nil )
+            {
+                print("Error reading height from HealthKit Store: \(error.localizedDescription)")
+                return;
+            }
+            var height4Input:Double = 0.0
+            let height = mostRecentHeight as? HKQuantitySample;
+            // 3. Format the height to display it on the screen
+            if let meters = height?.quantity.doubleValueForUnit(HKUnit.meterUnit()) {
+                height4Input = meters
+            }
+        
+            self.height = height4Input
+            // 4. Update UI. HealthKit use an internal queue. We make sure that we interact with the UI in the main thread
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.heightText.text = String(format:"%.1f", height4Input)
+
+            });
+        })
+        
     }
     /*
     // MARK: - Navigation

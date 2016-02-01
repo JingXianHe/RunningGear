@@ -22,6 +22,7 @@ class PastRunCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ShareBtn: UIButton!
     
+    @IBOutlet weak var DeleteBtn: UIButton!
  
     @IBAction func share2Public() {
         pastRunDelegate?.pastRunShare2Public(cellIndex!)

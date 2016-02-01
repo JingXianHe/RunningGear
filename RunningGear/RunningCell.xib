@@ -186,6 +186,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="DeleteBtn" destination="zio-gi-lrp" id="R5w-6S-JiL"/>
                 <outlet property="DistanceLabel" destination="ujx-81-0ed" id="3FL-63-Nxh"/>
                 <outlet property="DurationLabel" destination="A91-wl-6VI" id="BfF-DA-Dop"/>
                 <outlet property="PaceLabel" destination="ert-LK-dZu" id="7f0-de-e57"/>

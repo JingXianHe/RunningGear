@@ -82,6 +82,32 @@ class HealthManager: NSObject {
         // 5. Execute the Query
         self.healthKitStore.executeQuery(sampleQuery)
     }
+    func saveRunningWorkout(startDate:NSDate , endDate:NSDate , distance:Double, distanceUnit:HKUnit , kiloCalories:Double,
+        completion: ( (Bool, NSError!) -> Void)!) {
+            
+            // 1. Create quantities for the distance and energy burned
+            let distanceQuantity = HKQuantity(unit: distanceUnit, doubleValue: distance)
+            let caloriesQuantity = HKQuantity(unit: HKUnit.kilocalorieUnit(), doubleValue: kiloCalories)
+            
+            // 2. Save Running Workout
+            let workout = HKWorkout(activityType: HKWorkoutActivityType.Running, startDate: startDate, endDate: endDate, duration: abs(endDate.timeIntervalSinceDate(startDate)), totalEnergyBurned: caloriesQuantity, totalDistance: distanceQuantity, metadata: nil)
+            healthKitStore.saveObject(workout, withCompletion: { (success, error) -> Void in
+                if( error != nil  ) {
+                    // Error saving the workout
+                    completion(success,error)
+                }
+                else {
+                    // if success, then save the associated samples so that they appear in the Health Store
+                    let distanceSample = HKQuantitySample(type: HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)!, quantity: distanceQuantity, startDate: startDate, endDate: endDate)
+                    let caloriesSample = HKQuantitySample(type: HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)!, quantity: caloriesQuantity, startDate: startDate, endDate: endDate)
+                    
+                    self.healthKitStore.addSamples([distanceSample,caloriesSample], toWorkout: workout, completion: { (success, error ) -> Void in
+                        completion(success, error)
+                    })
+                    
+                }
+            })
+    }
 
 
 }

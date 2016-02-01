@@ -35,6 +35,7 @@
 		FFBBE4901C4F488C00FACB7B /* RunningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFBBE48F1C4F488C00FACB7B /* RunningCell.xib */; };
 		FFBBE4931C4F5EB700FACB7B /* PastRunCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBBE4921C4F5EB700FACB7B /* PastRunCellTableViewCell.swift */; };
 		FFC062A71C40BB2700B2B4AD /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC062A61C40BB2700B2B4AD /* RunViewController.swift */; };
+		FFD65F241C5F46A900D9E5E1 /* AddData2BMIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD65F231C5F46A900D9E5E1 /* AddData2BMIController.swift */; };
 		FFE289A21C537FAE00EE56DB /* SettingPane.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE289A11C537FAE00EE56DB /* SettingPane.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		FFBBE48F1C4F488C00FACB7B /* RunningCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunningCell.xib; sourceTree = "<group>"; };
 		FFBBE4921C4F5EB700FACB7B /* PastRunCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunCellTableViewCell.swift; sourceTree = "<group>"; };
 		FFC062A61C40BB2700B2B4AD /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
+		FFD65F231C5F46A900D9E5E1 /* AddData2BMIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddData2BMIController.swift; sourceTree = "<group>"; };
 		FFE289A11C537FAE00EE56DB /* SettingPane.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingPane.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				FF3BFF431C5C9DBA00F68BF8 /* SettingPaneViewController.swift */,
+				FFD65F231C5F46A900D9E5E1 /* AddData2BMIController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				FF8F44211C522D9E00CDD12C /* Run+CoreDataProperties.swift in Sources */,
 				FFBBE4931C4F5EB700FACB7B /* PastRunCellTableViewCell.swift in Sources */,
 				FF8F442A1C522DB900CDD12C /* ImgAndGoal.swift in Sources */,
+				FFD65F241C5F46A900D9E5E1 /* AddData2BMIController.swift in Sources */,
 				FFBBE4881C4F1AF500FACB7B /* ModelAnimator.swift in Sources */,
 				FF8F44261C522DAB00CDD12C /* Location.swift in Sources */,
 				FF8F44251C522DAB00CDD12C /* Location+CoreDataProperties.swift in Sources */,

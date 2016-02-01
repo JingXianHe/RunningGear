@@ -17,6 +17,8 @@ class PastRunViewController: UIViewController {
     var runList = [Run]()
     var imgUrlList = [ImgAndGoal]()
     var managedObjectContext: NSManagedObjectContext?
+    var weightValue:Double = 0.0
+    var isPaneSettingMode:Bool = false
     
     @IBOutlet weak var PastRunList: UITableView!
     @IBAction func pop2Home() {
@@ -75,6 +77,7 @@ extension PastRunViewController:UITableViewDataSource{
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        
         var cell:PastRunCellTableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as? PastRunCellTableViewCell
         if (cell == nil) {
             // 从xib中加载cell
@@ -86,6 +89,16 @@ extension PastRunViewController:UITableViewDataSource{
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
         cell?.PaceLabel.text = dateFormatter.stringFromDate(runList[indexPath.row].timestamp!)
+        if isPaneSettingMode == false{
+            
+            
+        }else{
+            cell?.ShareBtn.setImage(nil, forState: .Normal)
+            cell?.DeleteBtn.setImage(nil, forState: .Normal)
+            cell?.ShareBtn.backgroundColor = UIColor.whiteColor()
+            cell?.DeleteBtn.backgroundColor = UIColor.whiteColor()
+        }
+        
         cell?.pastRunDelegate = self
         cell?.cellIndex = indexPath
         cell?.selectionStyle = .None
@@ -108,21 +121,41 @@ extension PastRunViewController:UITableViewDelegate{
         return 150.0
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let mystoryboard = UIStoryboard(name: "RunPane", bundle: nil)
-        let nav = mystoryboard.instantiateViewControllerWithIdentifier("ResultPane") as! ResultViewController
-
-        nav.run = runList[indexPath.row]
-        nav.isPastPane = true
-        presentViewController(nav, animated: true) { () -> Void in
+        
+        if isPaneSettingMode == true {
+            let mystoryboard = UIStoryboard(name: "SettingPane", bundle: nil)
+            let nav = mystoryboard.instantiateViewControllerWithIdentifier("AddData2BMI") as! AddData2BMIController
             
+            nav.run = runList[indexPath.row]
+            presentViewController(nav, animated: true) { () -> Void in
+                
+            }
+            
+        }else{
+            let mystoryboard = UIStoryboard(name: "RunPane", bundle: nil)
+            let nav = mystoryboard.instantiateViewControllerWithIdentifier("ResultPane") as! ResultViewController
+            
+            nav.run = runList[indexPath.row]
+            nav.isPastPane = true
+            presentViewController(nav, animated: true) { () -> Void in
+                
+            }
         }
+
     }
 }
 extension PastRunViewController:PastRunCellDelegate{
     func pastRunShare2Public(indexPath: NSIndexPath){
+        if isPaneSettingMode == true{
+            return
+        }
         print("\(indexPath.row)")
+        
     }
     func pastRunDeleteRecord(indexPath: NSIndexPath, InputIndex inputIndex:Int){
+        if isPaneSettingMode == true{
+            return
+        }
         managedObjectContext!.deleteObject(runList[indexPath.row] as NSManagedObject)
         runList.removeAtIndex(indexPath.row)
         for item in imgUrlList{
